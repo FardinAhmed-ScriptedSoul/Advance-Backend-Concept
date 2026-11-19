@@ -39,13 +39,13 @@ Linux kernel: namespaces + cgroups + capabilities + seccomp
 
 ### Kernel-level isolation
 
-| Mechanism | What it isolates or controls |
-|---|---|
-| Namespaces | Process IDs, mounts, networking, hostname (UTS), IPC, and optionally user IDs |
-| cgroups | CPU, memory, process count, and other resource accounting/limits |
-| Capabilities | Splits root privileges into smaller permissions |
-| seccomp / AppArmor / SELinux | Restricts system calls and access to kernel resources |
-| Overlay filesystem | Combines read-only image layers with a container's writable layer |
+| Mechanism                    | What it isolates or controls                                                  |
+| ---------------------------- | ----------------------------------------------------------------------------- |
+| Namespaces                   | Process IDs, mounts, networking, hostname (UTS), IPC, and optionally user IDs |
+| cgroups                      | CPU, memory, process count, and other resource accounting/limits              |
+| Capabilities                 | Splits root privileges into smaller permissions                               |
+| seccomp / AppArmor / SELinux | Restricts system calls and access to kernel resources                         |
+| Overlay filesystem           | Combines read-only image layers with a container's writable layer             |
 
 Containers are not a security boundary equivalent to a separate VM kernel. Keep the host and Engine patched, avoid privileged mode, and run as a non-root user when possible.
 
@@ -165,16 +165,16 @@ edit -> build -> run -> inspect logs/health -> test -> push image -> deploy
 
 ## Common failures
 
-| Symptom | Likely cause / check |
-|---|---|
-| `ERR_MODULE_NOT_FOUND` | Dependency absent from the service's manifest or image; rebuild after fixing it |
-| Container exits | `docker compose ps -a` and `docker compose logs SERVICE` |
-| Browser cannot connect | Check process, bind address (`0.0.0.0` in container), host/container port mapping, and URL |
-| Frontend loads but has no API data | Frontend must make a request; check API URL, browser CORS, and API logs |
-| Pull access denied | Check exact owner/repository/tag, spelling, visibility, and login |
-| File absent on host | Confirm the write path is the mount target; inspect `Source` and `Destination` |
-| Data disappears | Data was in the container writable layer or the volume was removed |
-| Compose service hostname fails in browser | `backend` resolves inside the Compose network, not on the host browser |
+| Symptom                                   | Likely cause / check                                                                         |
+| ----------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `ERR_MODULE_NOT_FOUND`                  | Dependency absent from the service's manifest or image; rebuild after fixing it              |
+| Container exits                           | `docker compose ps -a` and `docker compose logs SERVICE`                                 |
+| Browser cannot connect                    | Check process, bind address (`0.0.0.0` in container), host/container port mapping, and URL |
+| Frontend loads but has no API data        | Frontend must make a request; check API URL, browser CORS, and API logs                      |
+| Pull access denied                        | Check exact owner/repository/tag, spelling, visibility, and login                            |
+| File absent on host                       | Confirm the write path is the mount target; inspect `Source` and `Destination`           |
+| Data disappears                           | Data was in the container writable layer or the volume was removed                           |
+| Compose service hostname fails in browser | `backend` resolves inside the Compose network, not on the host browser                     |
 
 ## Interview quick answers
 
