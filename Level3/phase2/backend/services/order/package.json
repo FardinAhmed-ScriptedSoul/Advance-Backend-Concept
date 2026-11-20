@@ -1,0 +1,9 @@
+{
+  "name": "order",
+  "version": "1.0.0",
+  "main": "orderServer.js",
+  "scripts": {
+    "start": "node --env-file=.env orderServer.js"
+  },
+  "type": "commonjs"
+}

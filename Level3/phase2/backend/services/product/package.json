@@ -1,0 +1,9 @@
+{
+  "name": "product",
+  "version": "1.0.0",
+  "main": "productServer.js",
+  "scripts": {
+    "start": "node --env-file=.env productServer.js"
+  },
+  "type": "commonjs"
+}

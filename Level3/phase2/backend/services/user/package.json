@@ -1,0 +1,9 @@
+{
+  "name": "user",
+  "version": "1.0.0",
+  "main": "userServer.js",
+  "scripts": {
+    "start": "node --env-file=.env userServer.js"
+  },
+  "type": "commonjs"
+}
